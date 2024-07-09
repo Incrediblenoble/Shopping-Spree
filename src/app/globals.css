@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --rem: 10px;
+    font-size: var(--rem);
+}
+
+.sticky {
+    background-color: transparent;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1111;
+    animation-duration: 0.7s;
+    animation-name: fadeInDown;
+    animation-timing-function: ease-out;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@layer base {
+    .btn-primary {
+        @apply bg-primary px-[1.6rem] py-[.8rem] rounded-[.8rem] text-white text-[1.5rem] transition-all hover:bg-primary-light hover:text-[#0072C6] disabled:bg-primary-light disabled:text-white
+    }
+
+    .btn-secondary {
+        @apply rounded-[.8rem] px-[1.6rem] py-[.8rem] hover:bg-primary hover:text-white transition-all bg-primary-light text-[1.5rem] font-semibold text-[#0072C6]
+    }
+
+    .btn-cancel {
+        @apply text-[#2a2a2a] font-medium text-[1.5rem] bg-[#f9f9f9] py-[12px] px-[16px] rounded-[8px]
+    }
+}
